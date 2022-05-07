@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+  <div class="col-md-4 register-employee">
+    <!-- form card register -->
+    <div class="card card-outline-secondary">
+      <div class="card-header">
+        <h3 STYLE="text-align: center" class="mb-0">EDITAR REGISTRO DEL ESTUDIANTE</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+          <div class="form-group">
+            <label for="inputIdentificacionEstudiante">Identificación del estudiante</label>
+            <input class="form-control" type="text" formControlName="idDocumento">
+            <div class="invalid-feedback" *ngIf="submitted && myForm.name.errors?.required">
+              Name is required.
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="inputName">Nombre del estudiante</label>
+            <input class="form-control" type="text" formControlName="nombre">
+            <!-- error -->
+            <div class="invalid-feedback" *ngIf="submitted && myForm.nombre.errors?.required">
+              Enter your email.
+            </div>
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="inputPassword3">Número de Control</label>
+            <select class="custom-select form-control" (change)="updateProfile($event.target.value)"
+                    formControlName="noControl">
+              <option *ngFor="let estudianteProfile of EstudianteProfile" value="{{estudianteProfile}}">{{estudianteProfile}}
+            </select>
+            <!-- error -->
+            <div class="invalid-feedback" *ngIf="submitted && myForm.noControl.errors?.required">
+              Choose designation.
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label for="inputGrado">Grado</label>
+            <input class="form-control" type="text" formControlName="grado">
+            <!-- error -->
+            <div class="invalid-feedback" *ngIf="submitted && myForm.name.errors?.required">
+              Grado requerido.
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="inputGrupo">Grupo</label>
+            <input class="form-control" type="text" formControlName="grupo">
+            <!-- error -->
+            <div class="invalid-feedback" *ngIf="submitted && myForm.name.errors?.required">
+              Grupo requerido.
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" type="submit">Update</button>
+          </div>
+        </form>
+      </div>
+    </div><!-- form  -->
+  </div>
+</div>
